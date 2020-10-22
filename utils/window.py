@@ -2,14 +2,14 @@ import pygame
 from utils.player import Player
 from utils.spritesheet import Spritesheet
 from utils.nonplayersprites import NonPlayerSprites
-from utils.game import Game
+
 
 
 class Window:
     screen = None
     all_active_sprites = None
 
-    def __init__(self, labyrinth: Game) -> None:
+    def __init__(self, labyrinth) -> None:
         self.labyrinth = labyrinth
         pygame.init()
         size = 500, 500
@@ -17,7 +17,7 @@ class Window:
         self.screen = pygame.display.set_mode(size)
         self.all_active_sprites = pygame.sprite.Group()
         self.player = Player()
-        self.guardian = NonPlayerSprites('Gardien.png', (0, 0))
+        self.guardian = NonPlayerSprites('guard2.png', (0, 0))
         self.aiguille = NonPlayerSprites('aiguille.png', (0, 0))
         self.tube_plastique = NonPlayerSprites('tube_plastique.png', (0, 0))
         self.ether = NonPlayerSprites('ether.png', (0, 0))

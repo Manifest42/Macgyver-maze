@@ -8,7 +8,7 @@ class Player(pygame.sprite.Sprite):
 
     def __init__(self) -> None:
         super().__init__()
-        self.image = pygame.image.load('ressource/MacGyver.png').convert()
+        self.image = pygame.image.load('ressource/macgyver2.png').convert()
         # scale player image
         self.image = pygame.transform.scale(self.image, (30, 30))
         self.image.set_colorkey((0, 0, 0))
