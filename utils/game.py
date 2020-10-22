@@ -1,4 +1,9 @@
 import random
+import pygame
+import sys
+from pygame import QUIT
+from .window import Window
+
 
 
 class Game:
@@ -26,6 +31,32 @@ class Game:
         self.guardian_position = self.seek_item("E")
         self.place_items()
 
+    def start(self):
+        self.window = Window(self)
+        while True:  # main game loop
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT:
+                        self.window.player.move_left()
+                        self.move('l')
+                    if event.key == pygame.K_RIGHT:
+                        self.window.player.move_right()
+                        self.move('r')
+                    if event.key == pygame.K_DOWN:
+                        self.window.player.move_down()
+                        self.move('d')
+                    if event.key == pygame.K_UP:
+                        self.window.player.move_up()
+                        self.move('u')
+            if self.state == "win" or self.state == "lose":
+                self.window.message_display("You {}!".format(self.state))
+            else:
+                self.window.refresh()
+    
+    
     def seek_item(self, item: str) -> list:
         """
         This function look for an item in the generated labyrinth
