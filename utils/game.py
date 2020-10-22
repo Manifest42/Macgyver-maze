@@ -5,7 +5,6 @@ from pygame import QUIT
 from .window import Window
 
 
-
 class Game:
     """
     This is the labyrinth, which is
@@ -55,8 +54,7 @@ class Game:
                 self.window.message_display("You {}!".format(self.state))
             else:
                 self.window.refresh()
-    
-    
+
     def seek_item(self, item: str) -> list:
         """
         This function look for an item in the generated labyrinth

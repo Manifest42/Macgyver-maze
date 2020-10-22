@@ -4,7 +4,6 @@ from utils.spritesheet import Spritesheet
 from utils.nonplayersprites import NonPlayerSprites
 
 
-
 class Window:
     screen = None
     all_active_sprites = None
