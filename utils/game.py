@@ -22,27 +22,21 @@ class Game:
                     # Add a line without line breaks as a list to the layout
                     self.layout.append(list(line[:15].replace("\n", "")))
         # Looking for player and guard positions to put them in the variable
-        self.seek_item("P")
-        self.seek_item("E")
+        self.player_position = self.seek_item("P")
+        self.guardian_position = self.seek_item("E")
         self.place_items()
 
-    def seek_item(self, item: str) -> None:
+    def seek_item(self, item: str) -> list:
         """
         This function look for an item in the generated labyrinth
+        :return: [index_y, index_x]
+        :raise: IndexError if item not found
         """
         for index_y, line in enumerate(self.layout):  # Iterate over y axis
             for index_x, tile in enumerate(line):  # Iterate over x axis
                 if tile == item:  # If the tile contains a player
-                    if item == "P":
-                        # Set the player position to this tile
-                        self.player_position = [index_y, index_x]
-                    else:
-                        # Set the guard position to this tile
-                        self.guardian_position = [index_y, index_x]
-                    return  # stop the function
-        if not self.player_position:
-            print("couldn't find player")
-            exit()
+                    return [index_y, index_x]
+        raise IndexError(f"could not find {item}")
 
     def move(self, direction: str) -> None:
         switch = {
