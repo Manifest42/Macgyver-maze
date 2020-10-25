@@ -31,7 +31,7 @@ pip3 install -r requirements.txt
 ```
 - Run the program by running:
 ```bash
-python3 Main.py
+python3 main.py
 ```
 
 ### Map customization:

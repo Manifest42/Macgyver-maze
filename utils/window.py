@@ -1,6 +1,6 @@
 import pygame
 from utils.player import Player
-from utils.spritesheet import Spritesheet
+from utils.labyrinthtiles import Labyrinthtiles
 from utils.nonplayersprites import NonPlayerSprites
 
 
@@ -28,7 +28,7 @@ class Window:
                                     self.ether
                                     )
         # Load the terrain tiles
-        self.tiles = Spritesheet
+        self.tiles = Labyrinthtiles
         self.floor = pygame.image.load("ressource/path2.png")
         self.wall = pygame.image.load("ressource/wall.png")
 
