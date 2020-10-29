@@ -2,6 +2,9 @@ import pygame
 
 
 class Player(pygame.sprite.Sprite):
+    """
+    Loads image of the player
+    """
     image = None
     rect = None
     screen = None

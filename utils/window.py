@@ -1,10 +1,14 @@
 import pygame
+
 from utils.player import Player
-from utils.labyrinthtiles import Labyrinthtiles
-from utils.nonplayersprites import NonPlayerSprites
+from utils.labyrinthtile import Labyrinthtile
+from utils.nonplayersprite import NonPlayerSprite
 
 
 class Window:
+    """
+    Graphical User Interface
+    """
     screen = None
     all_active_sprites = None
 
@@ -16,11 +20,11 @@ class Window:
         self.screen = pygame.display.set_mode(size)
         self.all_active_sprites = pygame.sprite.Group()
         self.player = Player()
-        self.guardian = NonPlayerSprites('guard2.png', (0, 0))
-        self.aiguille = NonPlayerSprites('aiguille.png', (0, 0))
-        self.tube_plastique = NonPlayerSprites('tube_plastique.png', (0, 0))
-        self.ether = NonPlayerSprites('ether.png', (0, 0))
-        self.seringue = NonPlayerSprites('seringue.png', (0, 0))
+        self.guardian = NonPlayerSprite('guard2.png', (0, 0))
+        self.aiguille = NonPlayerSprite('aiguille.png', (0, 0))
+        self.tube_plastique = NonPlayerSprite('tube_plastique.png', (0, 0))
+        self.ether = NonPlayerSprite('ether.png', (0, 0))
+        self.seringue = NonPlayerSprite('seringue.png', (0, 0))
         self.all_active_sprites.add(self.player,
                                     self.guardian,
                                     self.aiguille,
@@ -28,7 +32,7 @@ class Window:
                                     self.ether
                                     )
         # Load the terrain tiles
-        self.tiles = Labyrinthtiles
+        self.tiles = Labyrinthtile
         self.floor = pygame.image.load("ressource/path2.png")
         self.wall = pygame.image.load("ressource/wall.png")
 

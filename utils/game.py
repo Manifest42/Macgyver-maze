@@ -1,7 +1,9 @@
 import random
-import pygame
 import sys
+
+import pygame
 from pygame import QUIT
+
 from .window import Window
 
 
@@ -31,6 +33,9 @@ class Game:
         self.place_items()
 
     def start(self):
+        """
+        Launch the game
+        """
         self.window = Window(self)
         while True:  # main game loop
             for event in pygame.event.get():
@@ -68,6 +73,9 @@ class Game:
         raise IndexError(f"could not find {item}")
 
     def move(self, direction: str) -> None:
+        """
+        Defined player movements
+        """
         switch = {
             "u": self.move_up,
             "up": self.move_up,
@@ -160,6 +168,9 @@ class Game:
         return True
 
     def get_free_tiles(self) -> list:
+        """
+        Looks for free spots to place objects
+        """
         free_tiles = []
         for index_y, line in enumerate(self.layout):  # Iterate on the y axis
             for index_x, tile in enumerate(line):  # Iterate on the x axis
@@ -168,6 +179,9 @@ class Game:
         return free_tiles
 
     def place_items(self) -> None:
+        """
+        Places the objects randomly according to get_free_tiles
+        """
         free_tiles = self.get_free_tiles()
         for i in range(0, 3):
             random_index = random.randint(0, len(free_tiles))

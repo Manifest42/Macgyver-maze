@@ -15,11 +15,11 @@ pip3 install virtualenv
 ```
 - Create a virtual environment by running:
 ```bash
-virtualenv venv
+virtualenv env
 ```
 - Activate the virtual environment by running:
 ```bash
-source venv/bin/activate
+source env/bin/activate
 ```
 - If you're not already there move to the root of the application:
 ```bash
